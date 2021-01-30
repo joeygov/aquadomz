@@ -69,6 +69,7 @@
 .nav-item:hover{
     color:red!important;
 }
+
 img{
     width:150px;
     height:100px
@@ -78,8 +79,7 @@ img{
     font-size:24px;
 }
 #profile_image{
-    border-radius: 50%;
-}
+    border-radius: 5;
 #profile_pic{
     margin-bottom:2%;
 }
