@@ -78,8 +78,11 @@ img{
     color:#ebe7df !important;
     font-size:24px;
 }
+
 #profile_image{
-    border-radius: 5;
+    border-radius: 50%;
+}
+
 #profile_pic{
     margin-bottom:2%;
 }

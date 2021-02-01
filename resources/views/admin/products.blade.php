@@ -3,46 +3,47 @@
 <div class="table-title">
     <div class="row">
         <div class="col-sm-10">
-            <h2>Operator List</h2>
+            <h2>Product List</h2>
         </div>
         <div class="col-sm-2">
             <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
         </div>
     </div>
 </div>
-<table id="operator_list" class="table table-striped table-bordered" style="width:100%">
+<table id="product_list" class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Firstname</th>
-            <th>Middlename</th>
-            <th>Lastname</th>
-            <th>Address</th>
-            <th>Contact No.</th>
+            <th>PRODUCT ID</th>
+            <th>PRODUCT CODE</th>
+            <th>PRODUCT NAME</th>
+            <th>SUPPLIER</th>
+            <th>QUANTITY</th>
+            <th>QUANTITY SOLD</th>
+            <th>QUANTITY REMAINING</th>
+            <th>DATE PURCHASED</th>
             <th>Action</th>
         </tr>
     </thead>
-    <tbody>
-    @foreach($operators as $operator)
+    <tbody>    
+        @foreach($products as $product)
         <tr>
-            <td>{{$operator->operator_id}}</td>
-            <td>{{$operator->username}}</td>
-            <td>{{$operator->firstname}}</td>
-            <td>{{$operator->middlename}}</td>
-            <td>{{$operator->lastname}}</td>
-            <td>{{$operator->address}}</td>
-            <td>{{$operator->contact_number}}</td>
+            <td>{{$product->id}}</td>
+            <td>{{$product->product_code}}</td>
+            <td>{{$product->product_name}}</td>
+            <td>{{$product->supplier}}</td>
+            <td>{{$product->quantity}}</td>
+            <td>{{$product->quantity_sold}}</td>
+            <td>{{$product->quantity_remaining}}</td>
+            <td>{{$product->date_purchased}}</td>
             <td> 
                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                <a class="delete"  href="#delete_modal" title="Delete" data-toggle="modal"><i class="material-icons">&#xE872;</i></a>
+                <a class="delete" href="#delete_modal" title="Delete" data-toggle="modal"><i class="material-icons">&#xE872;</i></a>
             </td>
         </tr>
-    @endforeach
+        @endforeach
     </tbody>
 </table>
-<form action="{{ route('deleteOperator',$operator->operator_id) }}" method="get">
-    @csrf
+<form action="{{ route('deleteProduct',$product->id) }}" method="get">
     <div id="delete_modal" class="modal fade">
         <div class="modal-dialog modal-dialog-centered modal-confirm">
             <div class="modal-content">
