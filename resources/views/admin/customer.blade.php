@@ -1,3 +1,24 @@
+
+
+Skip to content
+Using Passerelles numériques Mail with screen readers
+1 of 1,535
+(no subject)
+Inbox
+
+joe weeh
+Attachments
+9:01 PM (14 minutes ago)
+to me
+
+
+6 Attachments
+Meet
+New meeting
+My meetings
+Hangouts
+
+
 @extends('layouts.app')
 @section('content')
 <div class="table-title">
@@ -14,7 +35,6 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Username</th>
             <th>Firstname</th>
             <th>Middlename</th>
             <th>Lastname</th>
@@ -25,62 +45,23 @@
         </tr>
     </thead>
     <tbody>
+    @foreach($customers as $customer)
         <tr>
-            <td>100001</td>
-            <td>Tiger</td>
-            <td>Marion</td>
-            <td>Jay</td>
-            <td>Balugo</td>
-            <td>Talamban, Cebu</td>
-            <td>09876543211</td>
-            <td>10</td>
+            <td>{{$customer->customer_id}}</td>
+            <td>{{$customer->firstname}}</td>
+            <td>{{$customer->middlename}}</td>
+            <td>{{$customer->lastname}}</td>
+            <td>{{$customer->address}}</td>
+            <td>{{$customer->contact_number}}</td>
+            <td>{{$customer->points}}</td>
             <td> 
                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                <a class="delete" href="{{url('/deleteCustomer',$customer->id)}}" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
             </td>
         </tr>
-        <tr>
-            <td>100001</td>
-            <td>Tiger</td>
-            <td>Marion</td>
-            <td>Jay</td>
-            <td>Balugo</td>
-            <td>Talamban, Cebu</td>
-            <td>09876543211</td>
-            <td>3</td>
-            <td> 
-                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>100001</td>
-            <td>Tiger</td>
-            <td>Marion</td>
-            <td>Jay</td>
-            <td>Balugo</td>
-            <td>Talamban, Cebu</td>
-            <td>09876543211</td>
-            <td>4</td>
-            <td> 
-                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-            </td>
-        </tr>
-        <tr>
-            <td>100001</td>
-            <td>Tiger</td>
-            <td>Marion</td>
-            <td>Jay</td>
-            <td>Balugo</td>
-            <td>Talamban, Cebu</td>
-            <td>09876543211</td>
-            <td>7</td>
-            <td> 
-                <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-            </td>
-        </tr>
+    @endforeach
     </tbody>
 </table>
 @stop
+customer.blade.php
+Displaying header.blade.php.
